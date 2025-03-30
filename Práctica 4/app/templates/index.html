@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Mi Web de Coches{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+</head>
+<body>
+    <header>
+        <h1>FORO MX-5</h1>
+        <nav>
+            <a href="/"><img src="{{ url_for('static', filename='miatalogo.png') }}" alt="Logo" class="logo"></a>
+            <a href="/">Inicio</a>
+            <a href="/about">Acerca de</a>
+            <a href="{{ url_for('coches.listar_coches') }}">Coches</a>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        <h2>Bienvenido a Foro <MX-5></MX-5></h2>
+        <p>Explora nuestra colección de coches, conoce sus detalles y mucho más... ¡No te limites sólo al MX-5!</p>
+        {% endblock %}
+    </main>
+    <footer>© 2025 Alfonso Jimena Ruiz - GISD</footer>
+</body>
+</html>

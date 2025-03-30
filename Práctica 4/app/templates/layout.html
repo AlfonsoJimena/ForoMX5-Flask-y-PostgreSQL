@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.ico') }}">
+    <meta charset="UTF-8">
+    <title>{% block title %}FORO MX-5{% endblock %}</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='layout.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='gallery.css') }}">
+</head>
+<body>
+
+    <div class="notifications">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul>
+                    {% for category, message in messages %}
+                        <li class="notification {{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </div>
+
+
+    <header>
+        <h1>FORO MX-5</h1>
+        <nav>
+            <a href="/"><img src="{{ url_for('static', filename='miatalogo.png') }}" alt="Logo" class="logo"></a>
+            <a href="/">Inicio</a>
+            <a href="/about">Acerca de</a>
+            <a href="{{ url_for('coches.listar_coches') }}">Coches</a>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>© 2025 Alfonso Jimena Ruiz - GISD</footer>
+</body>
+</html>
+

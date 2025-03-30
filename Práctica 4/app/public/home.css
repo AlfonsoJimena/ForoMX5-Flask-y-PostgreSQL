@@ -1,0 +1,95 @@
+/* home.css */
+
+/* Fuente principal */
+@font-face {
+    font-family: 'Roboto';
+    src: url('/static/fonts/Roboto-Regular.woff2') format('woff2'),
+         url('/static/fonts/Roboto-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('/static/fonts/Roboto-Bold.woff2') format('woff2'),
+         url('/static/fonts/Roboto-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* Aplicar la fuente a toda la web */
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+
+
+/* Fondo y disposición de la página */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    text-align: center;
+    background-image: url('18b37ddb24a3019f0516da0d57f74d0b.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Cabecera */
+header {
+    background: black;
+    padding: 1em;
+}
+
+/* Navegación */
+nav {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    position: relative; 
+    background: #222;
+    padding: 1em;
+}
+
+nav .logo {
+    position: absolute; 
+    left: 10px; 
+    top: -30px; 
+    width: 130px; 
+    height: auto; 
+    vertical-align: middle; 
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+/* Cuerpo principal */
+main {
+    flex-grow: 1;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    margin: 20px auto;
+    width: 80%;
+}
+
+/* Estilo para el pie de página */
+footer {
+    margin-top: auto;
+    background: #222;
+    color: white;
+    padding: 1em;
+    text-align: center;
+    font-size: 0.9em;
+}
+

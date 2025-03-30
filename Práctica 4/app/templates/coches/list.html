@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h2>Lista de Coches</h2>
+
+<form method="GET" action="{{ url_for('coches.listar_coches') }}" class="search-form">
+    <input type="text" name="q" placeholder="Buscar por marca o modelo..." value="{{ request.args.get('q', '') }}">
+    <button type="submit">Buscar</button>
+</form>
+
+{% if coches %}
+    <ul class="car-list">
+        {% for coche in coches %}
+            <li class="car-item">
+                <a href="{{ url_for('coches.mostrar_coche', coche_id=coche.id) }}">
+                    {% if coche.imagen and coche.imagen != "" %}
+                        <img src="{{ url_for('static', filename='assets/thumbnails/' + coche.thumbnail) }}" 
+                             alt="Imagen de {{ coche.marca }} {{ coche.modelo }}" class="car-thumbnail">
+                    {% endif %}
+                    {{ coche.marca }} {{ coche.modelo }} - {{ coche.anio }} - {{ coche.precio}} - {{ coche.cv }} CV
+                </a>
+                <form action="{{ url_for('coches.eliminar_coche', coche_id=coche.id) }}" method="post">
+                    <button type="submit" class="delete-btn">Eliminar</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No se han encontrado coches con ese término de búsqueda.</p>
+{% endif %}
+
+<a href="{{ url_for('coches.formulario_nuevo') }}" class="add-car">Añadir nuevo coche</a>
+
+{% endblock %}
+
+
+
+
